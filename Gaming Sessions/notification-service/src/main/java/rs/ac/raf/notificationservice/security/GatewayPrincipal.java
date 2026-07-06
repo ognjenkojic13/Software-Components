@@ -1,0 +1,11 @@
+package rs.ac.raf.notificationservice.security;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
+public class GatewayPrincipal {
+    private Long userId;
+    private String username;
+}

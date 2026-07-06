@@ -1,0 +1,16 @@
+package rs.ac.raf.userservice.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+@Getter
+@Setter
+public class ForgotPasswordRequest {
+
+    @NotBlank
+    @Email
+    private String email;
+}

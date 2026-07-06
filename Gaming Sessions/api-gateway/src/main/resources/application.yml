@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+zuul:
+  ignored-services: '*'
+  sensitive-headers:
+  routes:
+    user-service:
+      path: /api/users/**
+      serviceId: user-service
+      strip-prefix: false
+    session-service-games:
+      path: /api/games/**
+      serviceId: session-service
+      strip-prefix: false
+    session-service-sessions:
+      path: /api/sessions/**
+      serviceId: session-service
+      strip-prefix: false
+    notification-service:
+      path: /api/notifications/**
+      serviceId: notification-service
+      strip-prefix: false
+    notification-types:
+      path: /api/notification-types/**
+      serviceId: notification-service
+      strip-prefix: false
+
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 15000
+  ConnectTimeout: 5000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000
+
+app:
+  jwt:
+    secret: gaming-sessions-super-secret-key-change-me-1234567890

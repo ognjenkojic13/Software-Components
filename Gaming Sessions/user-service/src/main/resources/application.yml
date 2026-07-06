@@ -1,0 +1,37 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_service_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: gaming_app
+    password: gaming_app_pw
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: false
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+app:
+  jwt:
+    secret: gaming-sessions-super-secret-key-change-me-1234567890
+    expiration-ms: 86400000
+  internal-secret: internal-service-secret-change-me
+  admin:
+    email: admin@gaming-sessions.local
+    password: admin123
