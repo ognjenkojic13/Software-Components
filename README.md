@@ -1,4 +1,8 @@
 Gaming Sessions — mikroservisni sistem za organizovanje gejming sesija, rađen za predmet Softverske komponente. Igrači se registruju, kreiraju sesije za razne igre, pozivaju druge igrače da im se pridruže, a organizator na kraju zaključuje sesiju i evidentira prisustvo. Arhitektura se sastoji od tri nezavisna Spring Boot mikroservisa (korisnici, sesije, notifikacije), svaki sa svojom MySQL bazom, uz Eureku za service discovery i Zuul kao API gateway. Notifikacije (aktivacija naloga, pozivnice, podsetnici) šalju se asinhrono preko ActiveMQ. Autentifikacija i autorizacija rade preko JWT-a. Klijentska aplikacija je urađena u React-u.
+
+
+
+
 CREATE DATABASE user_service_db;
 CREATE DATABASE session_service_db;
 CREATE DATABASE notification_service_db;
